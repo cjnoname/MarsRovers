@@ -10,7 +10,7 @@ namespace ConsoleApp1.Models
         public Dictionary<char, IAction> Actions { get; set; }
         public List<char> CommandList { get; set; }
 
-        public Command(string command)
+        public Command()
         {
             Actions = new Dictionary<char, IAction>
             {
@@ -18,14 +18,11 @@ namespace ConsoleApp1.Models
                 { 'L', new TurnLeftAction() },
                 { 'R', new TurnRightAction() }
             };
+        }
+
+        public void UpdateCommand(string command)
+        {
             CommandList = command.ToCharArray().ToList();
         }
-
-        public void UpgradeCommand(string command)
-        {
-            CommandList = GetCommandList(command);
-        }
-
-        public List<char> GetCommandList(string command) => command.ToCharArray().ToList();
     } 
 }

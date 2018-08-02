@@ -7,9 +7,14 @@ namespace ConsoleApp1.Models
     {
         public DirectionType CurrentDirection { get; set; }
 
-        public Direction(DirectionType currentDirection)
+        public Direction()
         {
-            CurrentDirection = currentDirection;
+        }
+
+        public void UpdateDirection(string currentDirection)
+        {
+            Enum.TryParse(currentDirection, out DirectionType direction);
+            CurrentDirection = direction;
         }
 
         public override string ToString() => Enum.GetName(typeof(DirectionType), CurrentDirection);

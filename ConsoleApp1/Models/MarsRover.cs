@@ -1,4 +1,7 @@
-﻿namespace ConsoleApp1.Models
+﻿using ConsoleApp1.Enums;
+using System;
+
+namespace ConsoleApp1.Models
 {
     public class MarsRover
     {
@@ -7,9 +10,20 @@
         public Direction Direction { get; set; }
         public Command Command { get; set; }
 
-        public MarsRover()
+        public MarsRover(string plateauInput)
         {
+            Plateau = new Plateau(plateauInput);
+            Coordinates = new Coordinates();
+            Direction = new Direction();
+            Command = new Command();
+        }
 
+        public void UpdateValues(string initialStateInput, string commandLineInput)
+        {
+            var initialStates = initialStateInput.Split(" ");
+            Coordinates.UpdateCoordinates(int.Parse(initialStates[0]), int.Parse(initialStates[1]));
+            Direction.UpdateDirection(initialStates[2]);
+            Command.UpdateCommand(commandLineInput);
         }
 
         public MarsRover(Coordinates coordinates, Plateau plateau, Direction direction)

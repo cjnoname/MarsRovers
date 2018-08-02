@@ -15,6 +15,12 @@
             YAxis = yAxis;
         }
 
+        public void UpdateCoordinates(int xAxis, int yAxis)
+        {
+            XAxis = xAxis;
+            YAxis = yAxis;
+        }
+
         public override string ToString() => $"{XAxis} {YAxis}";
 
         public Coordinates AfterOffset(int xAxisOffset, int yAixsOffset) =>
