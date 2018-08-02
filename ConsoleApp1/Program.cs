@@ -1,4 +1,5 @@
 ﻿using ConsoleApp1.Models;
+using ConsoleApp1.Services;
 using System;
 
 namespace ConsoleApp1
@@ -8,6 +9,8 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             MarsRover marsRover = null;
+            var actionFactory = new ActionFactory();
+
             while (marsRover == null)
             {
                 try
@@ -25,7 +28,7 @@ namespace ConsoleApp1
                 try
                 {
                     marsRover.UpdateValues(Console.ReadLine(), Console.ReadLine());
-                    Console.WriteLine(marsRover.RunAndGetResult());
+                    Console.WriteLine(marsRover.RunAndGetResult(actionFactory));
                 }
                 catch (Exception e)
                 {
