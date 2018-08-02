@@ -36,7 +36,6 @@ namespace ConsoleApp1.Models
             }
         }
 
-
         public void TurnLeft()
         {
             switch (CurrentDirection)

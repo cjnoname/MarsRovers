@@ -7,12 +7,30 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var marsRover = new MarsRover(Console.ReadLine());
+            MarsRover marsRover = null;
+            while (marsRover == null)
+            {
+                try
+                {
+                    marsRover = new MarsRover(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Plateau input is not valid, please try again. Error: {e.Message}");
+                }
+            }
 
             while (true)
             {
-                marsRover.UpdateValues(Console.ReadLine(), Console.ReadLine());
-                Console.WriteLine(marsRover.Run());
+                try
+                {
+                    marsRover.UpdateValues(Console.ReadLine(), Console.ReadLine());
+                    Console.WriteLine(marsRover.RunAndGetResult());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Run failed, please try again. Error: {e.Message}");
+                }
             }
         }
     }

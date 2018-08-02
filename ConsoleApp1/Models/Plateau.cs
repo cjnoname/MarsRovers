@@ -16,18 +16,10 @@
             MinYAxis = 0;
         }
 
-        public Plateau(int maxXAxis, int maxYAxis, int minXAxis = 0, int minYAxis = 0)
-        {
-            MaxXAxis = maxXAxis;
-            MaxYAxis = maxYAxis;
-            MinXAxis = minXAxis;
-            MinYAxis = minYAxis;
-        }
-
-        public bool InBound(Coordinates coordinates) =>
-            coordinates.XAxis >= MinXAxis &&
-            coordinates.XAxis <= MaxXAxis &&
-            coordinates.YAxis >= MinYAxis &&
-            coordinates.YAxis <= MaxYAxis;
+        public bool InBound(int xAxis, int yAxis) =>
+            xAxis >= MinXAxis &&
+            xAxis <= MaxXAxis &&
+            yAxis >= MinYAxis &&
+            yAxis <= MaxYAxis;
     }
 }

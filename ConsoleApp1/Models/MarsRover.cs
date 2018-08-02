@@ -1,7 +1,4 @@
-﻿using ConsoleApp1.Enums;
-using System;
-
-namespace ConsoleApp1.Models
+﻿namespace ConsoleApp1.Models
 {
     public class MarsRover
     {
@@ -26,31 +23,24 @@ namespace ConsoleApp1.Models
             Command.UpdateCommand(commandLineInput);
         }
 
-        public MarsRover(Coordinates coordinates, Plateau plateau, Direction direction)
-        {
-            Coordinates = coordinates;
-            Plateau = plateau;
-            Direction = direction;
-        }
-
-        public string Run()
+        public string RunAndGetResult()
         {
             Command.CommandList.ForEach(command =>
             {
                 Command.Actions[command].Action(this);
             });
-            return GetCurrentPosition();
+            return $"{Coordinates} {Direction}";
         }
-
-        public string GetCurrentPosition() => $"{Coordinates} {Direction}";
 
         public void Move()
         {
             (int xAxisOffset, int yAxisOffset) = Direction.GetOffset();
-            var newCoordinates = Coordinates.AfterOffset(xAxisOffset, yAxisOffset);
-            if (newCoordinates.InBound(Plateau))
+            (int newX, int newY) = Coordinates.AfterOffset(xAxisOffset, yAxisOffset);
+
+            // won't move if it's gonna to move out of bound
+            if (Plateau.InBound(newX, newY))
             {
-                Coordinates = newCoordinates;
+                Coordinates.UpdateCoordinates(newX, newY);
             }
         }
 
