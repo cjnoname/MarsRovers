@@ -12,12 +12,14 @@ namespace MarsRovers.Models
         public Plateau Plateau { get; set; }
         public Direction Direction { get; set; }
         public List<ActionType> CommandList { get; set; }
+        public ActionFactory ActionFactory { get; set; }
 
         public MarsRover(string plateauInput)
         {
             Plateau = new Plateau(plateauInput);
             Coordinates = new Coordinates();
             Direction = new Direction();
+            ActionFactory = new ActionFactory();
         }
 
         public void UpdateValues(string initialStateInput, string commandLineInput = "")
@@ -28,11 +30,11 @@ namespace MarsRovers.Models
             CommandList = GetCommandList(commandLineInput);
         }
 
-        public string RunAndGetResult(ActionFactory actionFactory)
+        public string RunAndGetResult()
         {
             CommandList.ForEach(command =>
             {
-                actionFactory.GetActionByType(command).Action(this);
+                ActionFactory.GetActionByType(command).Action(this);
             });
             return $"{Coordinates} {Direction}";
         }

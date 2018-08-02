@@ -11,6 +11,11 @@ namespace MarsRovers.Models
         {
         }
 
+        public Direction(DirectionType direction)
+        {
+            CurrentDirection = direction;
+        }
+
         public void UpdateDirection(string currentDirection)
         {
             Enum.TryParse(currentDirection, out DirectionType direction);

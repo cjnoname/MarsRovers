@@ -16,6 +16,14 @@
             MinYAxis = 0;
         }
 
+        public Plateau(int maxXAxis, int maxYAxis)
+        {
+            MaxXAxis = maxXAxis;
+            MaxYAxis = maxYAxis;
+            MinXAxis = 0;
+            MinYAxis = 0;
+        }
+
         public bool InBound(int xAxis, int yAxis) =>
             xAxis >= MinXAxis &&
             xAxis <= MaxXAxis &&

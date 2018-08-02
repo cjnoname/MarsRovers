@@ -1,5 +1,4 @@
-﻿using MarsRovers.Factories;
-using MarsRovers.Models;
+﻿using MarsRovers.Models;
 using System;
 
 namespace MarsRovers
@@ -9,7 +8,6 @@ namespace MarsRovers
         static void Main(string[] args)
         {
             MarsRover marsRover = null;
-            var actionFactory = new ActionFactory();
 
             while (marsRover == null)
             {
@@ -28,7 +26,7 @@ namespace MarsRovers
                 try
                 {
                     marsRover.UpdateValues(Console.ReadLine(), Console.ReadLine());
-                    Console.WriteLine(marsRover.RunAndGetResult(actionFactory));
+                    Console.WriteLine(marsRover.RunAndGetResult());
                 }
                 catch (Exception e)
                 {

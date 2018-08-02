@@ -9,6 +9,12 @@
         {
         }
 
+        public Coordinates(int xAxis, int yAxis)
+        {
+            XAxis = xAxis;
+            YAxis = yAxis;
+        }
+
         public void UpdateCoordinates(int xAxis, int yAxis)
         {
             XAxis = xAxis;
