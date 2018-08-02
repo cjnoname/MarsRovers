@@ -1,6 +1,6 @@
-﻿using ConsoleApp1.Models;
+﻿using MarsRovers.Models;
 
-namespace ConsoleApp1.Services
+namespace MarsRovers.Services
 {
     public class MoveAction : BaseAction
     {

@@ -1,7 +1,7 @@
-﻿using ConsoleApp1.Interfaces;
-using ConsoleApp1.Models;
+﻿using MarsRovers.Interfaces;
+using MarsRovers.Models;
 
-namespace ConsoleApp1.Services
+namespace MarsRovers.Services
 {
     public abstract class BaseAction : IAction
     {

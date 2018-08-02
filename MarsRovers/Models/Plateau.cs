@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1.Models
+﻿namespace MarsRovers.Models
 {
     public class Plateau
     {

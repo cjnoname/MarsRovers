@@ -1,8 +1,8 @@
-﻿using ConsoleApp1.Models;
-using ConsoleApp1.Services;
+﻿using MarsRovers.Models;
+using MarsRovers.Services;
 using System;
 
-namespace ConsoleApp1
+namespace MarsRovers
 {
     class Program
     {

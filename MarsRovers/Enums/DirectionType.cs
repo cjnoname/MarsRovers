@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1.Enums
+﻿namespace MarsRovers.Enums
 {
     public enum DirectionType
     {

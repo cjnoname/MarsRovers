@@ -1,7 +1,7 @@
-﻿using ConsoleApp1.Enums;
+﻿using MarsRovers.Enums;
 using System;
 
-namespace ConsoleApp1.Models
+namespace MarsRovers.Models
 {
     public class Direction
     {

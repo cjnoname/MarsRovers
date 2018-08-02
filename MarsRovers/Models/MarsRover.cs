@@ -1,8 +1,8 @@
-﻿using ConsoleApp1.Services;
+﻿using MarsRovers.Services;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ConsoleApp1.Models
+namespace MarsRovers.Models
 {
     public class MarsRover
     {

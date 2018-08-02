@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1.Interfaces
+﻿namespace MarsRovers.Interfaces
 {
     public interface IActionFactory
     {
