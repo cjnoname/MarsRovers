@@ -6,7 +6,7 @@ namespace ConsoleApp1.Services
     {
         public override void Action(MarsRover marsRover)
         {
-            marsRover.TurnLeft();
+            marsRover.TurnRight();
         }
     }
 }

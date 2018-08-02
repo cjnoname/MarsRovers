@@ -5,6 +5,10 @@
         public int XAxis { get; set; }
         public int YAxis { get; set; }
 
+        public Coordinates()
+        {
+        }
+
         public Coordinates(int xAxis, int yAxis)
         {
             XAxis = xAxis;
