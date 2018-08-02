@@ -1,4 +1,6 @@
-﻿using MarsRovers.Services;
+﻿using MarsRovers.Enums;
+using MarsRovers.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,7 +11,7 @@ namespace MarsRovers.Models
         public Coordinates Coordinates { get; set; }
         public Plateau Plateau { get; set; }
         public Direction Direction { get; set; }
-        public List<char> CommandList { get; set; }
+        public List<ActionType> CommandList { get; set; }
 
         public MarsRover(string plateauInput)
         {
@@ -23,7 +25,7 @@ namespace MarsRovers.Models
             var initialStates = initialStateInput.Split(" ");
             Coordinates.UpdateCoordinates(int.Parse(initialStates[0]), int.Parse(initialStates[1]));
             Direction.UpdateDirection(initialStates[2]);
-            CommandList = commandLineInput.ToCharArray().ToList();
+            CommandList = GetCommandList(commandLineInput);
         }
 
         public string RunAndGetResult(ActionFactory actionFactory)
@@ -50,5 +52,14 @@ namespace MarsRovers.Models
         public void TurnLeft() => Direction.TurnLeft();
 
         public void TurnRight() => Direction.TurnRight();
+
+        private List<ActionType> GetCommandList(string commandLineInput)
+        {
+            return commandLineInput.ToCharArray().Select(x =>
+            {
+                Enum.TryParse(x.ToString(), out ActionType actionType);
+                return actionType;
+            }).ToList();
+        }
     }
 }

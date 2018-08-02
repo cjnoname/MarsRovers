@@ -1,6 +1,5 @@
 ﻿using MarsRovers.Enums;
 using MarsRovers.Interfaces;
-using System;
 
 namespace MarsRovers.Services
 {
@@ -17,10 +16,8 @@ namespace MarsRovers.Services
             TurnRightAction = new TurnRightAction();
         }
 
-        public IAction GetActionByType(char type)
+        public IAction GetActionByType(ActionType actionType)
         {
-            Enum.TryParse(type.ToString(), out ActionType actionType);
-
             switch (actionType)
             {
                 case ActionType.M:

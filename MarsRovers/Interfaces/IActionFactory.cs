@@ -1,7 +1,9 @@
-﻿namespace MarsRovers.Interfaces
+﻿using MarsRovers.Enums;
+
+namespace MarsRovers.Interfaces
 {
     public interface IActionFactory
     {
-        IAction GetActionByType(char actionType);
+        IAction GetActionByType(ActionType actionType);
     }
 }
