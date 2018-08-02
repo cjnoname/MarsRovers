@@ -1,5 +1,5 @@
 ﻿using MarsRovers.Enums;
-using MarsRovers.Services;
+using MarsRovers.Factories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +20,7 @@ namespace MarsRovers.Models
             Direction = new Direction();
         }
 
-        public void UpdateValues(string initialStateInput, string commandLineInput)
+        public void UpdateValues(string initialStateInput, string commandLineInput = "")
         {
             var initialStates = initialStateInput.Split(" ");
             Coordinates.UpdateCoordinates(int.Parse(initialStates[0]), int.Parse(initialStates[1]));

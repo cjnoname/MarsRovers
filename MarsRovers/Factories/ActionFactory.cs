@@ -1,7 +1,8 @@
 ﻿using MarsRovers.Enums;
 using MarsRovers.Interfaces;
+using MarsRovers.Services;
 
-namespace MarsRovers.Services
+namespace MarsRovers.Factories
 {
     public class ActionFactory : IActionFactory
     {
