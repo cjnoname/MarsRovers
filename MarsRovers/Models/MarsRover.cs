@@ -1,25 +1,24 @@
 ﻿using MarsRovers.Enums;
 using MarsRovers.Factories;
+using MarsRovers.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace MarsRovers.Models
 {
-    public class MarsRover
+    public class MarsRover : IMarsRover
     {
         public Coordinates Coordinates { get; set; }
         public Plateau Plateau { get; set; }
         public Direction Direction { get; set; }
         public List<ActionType> ActionList { get; set; }
-        public ActionFactory ActionFactory { get; set; }
 
         public MarsRover(string plateauInput)
         {
             Plateau = new Plateau(plateauInput);
             Coordinates = new Coordinates();
             Direction = new Direction();
-            ActionFactory = new ActionFactory();
         }
 
         public void UpdateValues(string initialStateInput, string actionInput = "")

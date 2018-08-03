@@ -1,6 +1,8 @@
-﻿namespace MarsRovers.Models
+﻿using MarsRovers.Interfaces;
+
+namespace MarsRovers.Models
 {
-    public class Plateau
+    public class Plateau : IPlateau
     {
         public int MaxXAxis { get; set; }
         public int MaxYAxis { get; set; }

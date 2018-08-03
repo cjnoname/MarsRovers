@@ -1,6 +1,8 @@
-﻿namespace MarsRovers.Models
+﻿using MarsRovers.Interfaces;
+
+namespace MarsRovers.Models
 {
-    public class Coordinates
+    public class Coordinates : ICoordinates
     {
         public int XAxis { get; set; }
         public int YAxis { get; set; }

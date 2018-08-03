@@ -1,9 +1,10 @@
 ﻿using MarsRovers.Enums;
+using MarsRovers.Interfaces;
 using System;
 
 namespace MarsRovers.Models
 {
-    public class Direction
+    public class Direction : IDirection
     {
         public DirectionType CurrentDirection { get; set; }
 
