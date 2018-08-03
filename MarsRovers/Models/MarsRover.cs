@@ -11,7 +11,7 @@ namespace MarsRovers.Models
         public Coordinates Coordinates { get; set; }
         public Plateau Plateau { get; set; }
         public Direction Direction { get; set; }
-        public List<ActionType> CommandList { get; set; }
+        public List<ActionType> ActionList { get; set; }
         public ActionFactory ActionFactory { get; set; }
 
         public MarsRover(string plateauInput)
@@ -22,19 +22,19 @@ namespace MarsRovers.Models
             ActionFactory = new ActionFactory();
         }
 
-        public void UpdateValues(string initialStateInput, string commandLineInput = "")
+        public void UpdateValues(string initialStateInput, string actionInput = "")
         {
             var initialStates = initialStateInput.Split(" ");
             Coordinates.UpdateCoordinates(int.Parse(initialStates[0]), int.Parse(initialStates[1]));
             Direction.UpdateDirection(initialStates[2]);
-            CommandList = GetCommandList(commandLineInput);
+            ActionList = GetActionList(actionInput);
         }
 
         public string RunAndGetResult()
         {
-            CommandList.ForEach(command =>
+            ActionList.ForEach(actionType =>
             {
-                ActionFactory.GetActionByType(command).Action(this);
+                ActionFactory.GetActionByType(actionType).Action(this);
             });
             return $"{Coordinates} {Direction}";
         }
@@ -55,9 +55,9 @@ namespace MarsRovers.Models
 
         public void TurnRight() => Direction.TurnRight();
 
-        private List<ActionType> GetCommandList(string commandLineInput)
+        private List<ActionType> GetActionList(string actionInput)
         {
-            return commandLineInput.ToCharArray().Select(x =>
+            return actionInput.ToCharArray().Select(x =>
             {
                 Enum.TryParse(x.ToString(), out ActionType actionType);
                 return actionType;
