@@ -1,9 +1,8 @@
 ﻿using MarsRovers.Enums;
 using MarsRovers.Factories;
 using MarsRovers.Interfaces;
-using System;
+using MarsRovers.Utils;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace MarsRovers.Models
 {
@@ -16,17 +15,17 @@ namespace MarsRovers.Models
 
         public MarsRover(string plateauInput)
         {
-            Plateau = new Plateau(plateauInput);
+            Plateau = InputUtils.GeneratePlateauObject(plateauInput);
             Coordinates = new Coordinates();
             Direction = new Direction();
         }
 
         public void UpdateValues(string initialStateInput, string actionInput = "")
         {
-            var initialStates = initialStateInput.Split(" ");
-            Coordinates.UpdateCoordinates(int.Parse(initialStates[0]), int.Parse(initialStates[1]));
-            Direction.UpdateDirection(initialStates[2]);
-            ActionList = GetActionList(actionInput);
+            (int xAxis, int yAixs, DirectionType directionType) = InputUtils.GetInitialStateValues(initialStateInput);
+            Coordinates.UpdateCoordinates(xAxis, yAixs);
+            Direction.UpdateDirection(directionType);
+            ActionList = InputUtils.GetActionList(actionInput);
         }
 
         public string RunAndGetResult()
@@ -54,13 +53,5 @@ namespace MarsRovers.Models
 
         public void TurnRight() => Direction.TurnRight();
 
-        private List<ActionType> GetActionList(string actionInput)
-        {
-            return actionInput.ToCharArray().Select(x =>
-            {
-                Enum.TryParse(x.ToString(), out ActionType actionType);
-                return actionType;
-            }).ToList();
-        }
     }
 }

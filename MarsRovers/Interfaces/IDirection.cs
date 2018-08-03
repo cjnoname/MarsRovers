@@ -15,7 +15,7 @@ namespace MarsRovers.Interfaces
         /// <summary>
         /// Change the currect direction
         /// </summary>
-        void UpdateDirection(string currentDirection);
+        void UpdateDirection(DirectionType direction);
 
         /// <summary>
         /// Override the default ToString function to generate the direction output string
